@@ -1,3 +1,4 @@
+#Vibe coded ;)
 # Penrose Word Match
 
 A self-contained Flask application that generates de Bruijn pentagrid Penrose
