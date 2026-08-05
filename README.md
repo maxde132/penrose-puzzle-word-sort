@@ -67,8 +67,5 @@ Space one sheet at a time.
 - `POST /export_svg` accepts the same body and downloads the layered Cricut SVG.
 - `GET /health` returns a small readiness response.
 
-Run the included checks from the project directory with:
 
-```bash
-python -m unittest discover -s tests -v
-```
+<img width="1361" height="644" alt="{C68C2B36-2D8E-448A-89DA-3793266A4B20}" src="https://github.com/user-attachments/assets/d25f6bf9-2299-420a-97c7-a2284500b14e" />
