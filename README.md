@@ -1,10 +1,73 @@
-# penrose-puzzle-word-sort
-vibe coded web app that generates svg and pdf of penrose tiles WITH words on each edge allows imported lists for each word match good for use in classrooms
+# Penrose Word Match
 
-<img width="1334" height="637" alt="{7ECD3D42-B5AE-4C68-A2B4-E1CFD8DE8500}" src="https://github.com/user-attachments/assets/f5092e43-e7a2-4283-bfda-313d43e38121" />
+A self-contained Flask application that generates de Bruijn pentagrid Penrose
+P3 rhomb tilings, assigns bilingual word pairs to shared tile edges, previews
+the puzzle as SVG, and exports vector cut-out pieces to print-ready PDF pages.
 
-runs a local flask server on port 5000
-<img width="586" height="315" alt="{8323F795-6E34-4D70-BCD7-A729B6A06714}" src="https://github.com/user-attachments/assets/96bf7d5f-c370-4420-8064-ea034e053c9e" />
+The outer ring can be clipped into small edge pieces that complete an exact
+decagon, pentagon, five-point-star, or square silhouette. Interior pieces remain
+true P3 rhombi. A continuous outline pass keeps the assembled border visually
+uniform, similar to classic bounded Penrose demos.
 
-<img width="916" height="480" alt="{B89801A8-3FF3-482E-B921-7F0ACE8F881A}" src="https://github.com/user-attachments/assets/0d5cc656-ed23-45cd-b0f1-afd2607af973" />
-allows external lists in csv format
+## Run locally
+
+Python 3.9 or newer is required.
+
+```bash
+cd penrose_app
+python -m venv .venv
+source .venv/bin/activate       # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+```
+
+Open <http://127.0.0.1:5000>.
+
+## Word input
+
+Paste text or upload a `.txt`/`.csv` file. One pair belongs on each line and
+may use either delimiter:
+
+```text
+Monday,Lunes
+Tuesday|Martes
+```
+
+Shared edges are sorted by midpoint X and then Y. Pair halves are placed on
+the two deterministic tile sides and the pair list cycles when necessary.
+Boundary edges never receive labels.
+
+## Printing and scale
+
+The PDF exporter supports US Letter (default) and A4 paper. Choose a physical
+tile-edge scale from 1 to 3 inches to pack many pieces onto each page. Every
+full rhomb side uses that exact printed measurement, and clipped edge pieces
+retain the same scale so they reconnect correctly. The auto-fit option keeps
+the original one-piece-per-page behavior.
+
+Cut-line thickness is set independently in millimeters. It controls the PDF
+cut guides and Cricut SVG strokes without changing the thinner web-preview
+border.
+
+## Cricut SVG
+
+`Export Cricut SVG` uses the same physical page packing and tile-edge scale as
+the PDF. The single SVG contains one group per print page. Each page has an
+`artwork` group (fills and word labels) and a separate `cut-lines` group with
+exactly one closed machine-cut path per physical piece. Page groups are stacked
+vertically with a small gap so they can be ungrouped and sent to Cricut Design
+Space one sheet at a time.
+
+## API
+
+- `POST /generate` accepts `{ "settings": {...}, "word_pairs": [["Monday", "Lunes"]] }`.
+- `POST /export_pdf` accepts the same body and downloads a PDF. Response
+  headers report page count, piece count, and the maximum pieces on one page.
+- `POST /export_svg` accepts the same body and downloads the layered Cricut SVG.
+- `GET /health` returns a small readiness response.
+
+Run the included checks from the project directory with:
+
+```bash
+python -m unittest discover -s tests -v
+```
