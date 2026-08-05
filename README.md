@@ -69,3 +69,12 @@ Space one sheet at a time.
 
 
 <img width="1361" height="644" alt="{C68C2B36-2D8E-448A-89DA-3793266A4B20}" src="https://github.com/user-attachments/assets/d25f6bf9-2299-420a-97c7-a2284500b14e" />
+
+<img width="810" height="471" alt="{D51757B3-3F7C-448B-A930-2CE07B718A72}" src="https://github.com/user-attachments/assets/eb9ce1e4-ef41-4add-b83a-c8c9600e0ad0" />
+<img width="737" height="467" alt="{A115EF5E-F206-49E8-825E-FAD0F7FE4475}" src="https://github.com/user-attachments/assets/71b427c7-687a-4a1d-98cf-b414f6a55128" />
+<img width="593" height="492" alt="{D01B4C96-45BF-41B5-8A4E-689350A158BF}" src="https://github.com/user-attachments/assets/fcc3c0aa-e495-4d1d-8b0b-34f7dba0e6d7" />
+
+<img width="665" height="455" alt="{AB397150-CCE9-402E-8CFF-841ACDE0EC30}" src="https://github.com/user-attachments/assets/22da2cb5-392a-4de6-afd6-7d13a27f9fdc" />
+
+<img width="897" height="418" alt="{809CFE9F-E97D-4C4A-A37E-BD4464F5654C}" src="https://github.com/user-attachments/assets/a0153979-6635-4bd3-a874-5986aa3f9149" />
+
